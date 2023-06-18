@@ -38,10 +38,9 @@ function getRandomArbitrary(min, max) {
   }
 
 const requestListener = function (req, res) {
-    if (req.url === '/score') {
-        let originalGame = bowlingScore()
-        console.log(`Sending game: ${JSON.stringify(originalGame)}`)
-        let game = originalGame.reverse();
+      let originalGame = bowlingScore()
+      console.log(`Sending game: ${JSON.stringify(originalGame)}`)
+      let game = originalGame.reverse();
 
       res.statusCode = 200;
       res.setHeader("Access-Control-Allow-Origin", "*");
@@ -76,11 +75,6 @@ const requestListener = function (req, res) {
       }
 
       next()
-
-    } else {
-      res.statusCode = 404;
-      res.end("resource does not exist");
-    }
   };
   
   const server = http.createServer(requestListener);
