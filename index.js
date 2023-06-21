@@ -30,7 +30,6 @@ function bowlingScore() {
 }
 
 const http = require("http");
-const host = "127.0.0.1";
 const port = 8080;
 
 function getRandomArbitrary(min, max) {
@@ -78,6 +77,6 @@ const requestListener = function (req, res) {
   };
   
   const server = http.createServer(requestListener);
-  server.listen(port, host, () => {
-    console.log(`server running at http://${host}:${port}`);
+  server.listen(port, () => {
+    console.log(`server running on port ${port}`);
   });
